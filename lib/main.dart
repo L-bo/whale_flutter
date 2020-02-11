@@ -28,18 +28,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        new Container(
-          // TODO 这个地方显示背景图片还差屏幕适配
-          child: new Image.asset(
-            "images/icon_welcome.png",
-            fit: BoxFit.fitHeight,
-            width: 450,
-            height: 896,
+    return Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage("images/icon_welcome.png"),
+            fit: BoxFit.cover,
+          )),
+          child: Center(
+            child: Text('Hello Wolrd', style: TextStyle(fontSize: 22.0, color: Colors.white),),
           ),
-        ),
-      ],
+//          // TODO 这个地方显示背景图片还差屏幕适配
+//          child: new Image.asset(
+//            "images/icon_welcome.png",
+//            fit: BoxFit.fitHeight,
+//            width: 450,
+//            height: 896,
+//          ),
     );
   }
 }
