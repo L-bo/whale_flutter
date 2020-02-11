@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -26,24 +29,62 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Timer _timer;
+  var count = 0;
+
+  String textContent() {
+    if (count > 0) {
+      return '${count} s';
+    } else {
+      print('应该跳转界面');
+      return '0s';
+    }
+  }
+
+  @override
+  void initState() {
+    //Flutter 生命周期 创建时在build之后调用
+    print('开始倒计时');
+    count = 5;
+    final call = (timer) {
+      // 预定时间小于1的时候结束计时器
+      if (count < 1) {
+        _timer.cancel();
+      } else {
+        setState(() {
+          // 大于一的时候重新赋值
+          count -= 1;
+        });
+      }
+    };
+    if (_timer == null) {
+      _timer = Timer.periodic(Duration(seconds: 1), call);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-            image: AssetImage("images/icon_welcome.png"),
-            fit: BoxFit.cover,
-          )),
-          child: Center(
-            child: Text('Hello Wolrd', style: TextStyle(fontSize: 22.0, color: Colors.white),),
-          ),
-//          // TODO 这个地方显示背景图片还差屏幕适配
-//          child: new Image.asset(
-//            "images/icon_welcome.png",
-//            fit: BoxFit.fitHeight,
-//            width: 450,
-//            height: 896,
-//          ),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+        image: AssetImage("images/icon_welcome.png"),
+        fit: BoxFit.cover,
+      )),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          new Container(
+            child: new Text(
+              textContent(),
+              style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  decoration: TextDecoration.none),
+            ),
+            margin: EdgeInsets.fromLTRB(0, 50, 20, 0),
+          )
+        ],
+      ),
     );
   }
 }
