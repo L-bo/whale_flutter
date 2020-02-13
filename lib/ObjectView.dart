@@ -1,37 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(HomeViwe());
+  runApp(ObjectView());
 }
 
-class HomeViwe extends StatelessWidget {
+class ObjectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: ObjectPage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class ObjectPage extends StatefulWidget {
+  ObjectPage({Key key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  ObjectState createState() => ObjectState();
 }
 
-class HomePageState extends State<HomePage> {
-  int index = 0;
-
+class ObjectState extends State<ObjectPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text("首页"),
+        title: Text("项目"),
       ),
     );
   }

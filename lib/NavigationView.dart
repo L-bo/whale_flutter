@@ -1,37 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(HomeViwe());
+  runApp(NavigationApp());
 }
 
-class HomeViwe extends StatelessWidget {
+class NavigationApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO: implement build
     return MaterialApp(
-      title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: NavigationPage(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class NavigationPage extends StatefulWidget {
+  NavigationPage({Key key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  NavigationView createState() => NavigationView();
 }
 
-class HomePageState extends State<HomePage> {
-  int index = 0;
-
+class NavigationView extends State<NavigationPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text("首页"),
+        title: Text("导航"),
       ),
     );
   }

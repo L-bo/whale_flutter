@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:whale_flutter/NavigationBarView.dart';
 
 import 'HomeView.dart';
 
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // 预定时间小于1的时候结束计时器
       if (count < 1) {
         Navigator.of(context).pushAndRemoveUntil(new MaterialPageRoute(
-            builder: (BuildContext context) => new HomeViwe()), (//跳转到主页
+            builder: (BuildContext context) => new NavigationBarView()), (//跳转到主页
             Route route) => route == null);
         _timer.cancel();
       } else {
