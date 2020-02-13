@@ -95,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    // 界面销毁后将计时器取消
     _timer.cancel();
     super.dispose();
   }

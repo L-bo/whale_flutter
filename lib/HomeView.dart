@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(HomeViwe());
 }
+
 class HomeViwe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,9 +29,15 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Container(
-      child: Column(
-        children: <Widget>[new Text("测试界面")],
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: new AppBar(
+        backgroundColor: Colors.green,
+        title: new Container(
+          child: new Column(
+            children: <Widget>[new Text('首页')],
+          ),
+        ),
       ),
     );
   }
