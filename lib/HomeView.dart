@@ -10,9 +10,6 @@ class HomeViwe extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: HomePage(),
     );
   }
@@ -26,18 +23,65 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: new AppBar(
-        backgroundColor: Colors.green,
-        title: new Container(
-          child: new Column(
-            children: <Widget>[new Text('首页')],
-          ),
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+              icon: Image(
+                image: AssetImage("images/icon_home.png"),
+                width: 50,
+                height: 50,
+              ),
+              title: Text(
+                "首页",
+                style: TextStyle(color: Colors.black),
+              ),
+              activeIcon: Image(
+                image: AssetImage("images/icon_home_click.png"),
+              )),
+          BottomNavigationBarItem(
+              icon: Image(
+                image: AssetImage("images/icon_object.png"),
+                width: 50,
+                height: 50,
+              ),
+              title: Text(
+                "项目",
+                style: TextStyle(color: Colors.black),
+              ),
+              activeIcon:
+                  Image(image: AssetImage("images/icon_object_click.png"))),
+          BottomNavigationBarItem(
+              icon: Image(
+                image: AssetImage("images/icon_navigation.png"),
+                width: 50,
+                height: 50,
+              ),
+              title: Text(
+                "导航",
+                style: TextStyle(color: Colors.black),
+              ),
+              activeIcon:
+                  Image(image: AssetImage("images/icon_navigation_click.png"))),
+          BottomNavigationBarItem(
+              icon: Image(image: AssetImage("images/icon_individual.png")),
+              title: Text(
+                "个人",
+                style: TextStyle(color: Colors.black),
+              ),
+          activeIcon: Image(image: AssetImage("images/icon_individual_click.png")))
+        ],
+        currentIndex: index,
+        onTap: (int i) {
+          setState(() {
+            index = i;
+          });
+        },
       ),
     );
   }
